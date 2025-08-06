@@ -1,101 +1,147 @@
 import os
+
 from pathlib import Path
-import dj_database_url
-
+ 
 # Base directory
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+ 
+# SECURITY WARNING: keep the secret key used in production secret!
 
-# Secret Key
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'your-dev-secret-key')
+SECRET_KEY = 'django-insecure-change-this-in-production'
+ 
+# DEVELOPMENT MODE ONLY
 
-# Detect Render
-RENDER = os.environ.get('RENDER') is not None
+DEBUG = True
+ 
+# ⚠️ Allow all hosts for development
 
-# Debug mode
-DEBUG = not RENDER
+ALLOWED_HOSTS = ['*']
+ 
+# Application definition
 
-# Hosts
-if DEBUG:
-    ALLOWED_HOSTS = ['*']
-else:
-    ALLOWED_HOSTS = ['your-render-app.onrender.com']  # 🔁 Replace with your Render domain
-
-# Installed apps
 INSTALLED_APPS = [
+
     'django.contrib.admin',
+
     'django.contrib.auth',
+
     'django.contrib.contenttypes',
+
     'django.contrib.sessions',
+
     'django.contrib.messages',
+
     'django.contrib.staticfiles',
-    'books',
-]
 
-# Middleware
+    'books',  # your app
+
+]
+ 
 MIDDLEWARE = [
+
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Enables serving static files in production
+
     'django.contrib.sessions.middleware.SessionMiddleware',
+
     'django.middleware.common.CommonMiddleware',
+
     'django.middleware.csrf.CsrfViewMiddleware',
+
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+
     'django.contrib.messages.middleware.MessageMiddleware',
+
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
 
-# URL configuration
+]
+ 
 ROOT_URLCONF = 'online_bookstore.urls'
-
-# Templates
+ 
 TEMPLATES = [
+
     {
+
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # Optional: for project-level templates
+
+        'DIRS': [BASE_DIR / 'templates'],  # optional: custom template directory
+
         'APP_DIRS': True,
+
         'OPTIONS': {
+
             'context_processors': [
+
                 'django.template.context_processors.debug',
+
                 'django.template.context_processors.request',
+
                 'django.contrib.auth.context_processors.auth',
+
                 'django.contrib.messages.context_processors.messages',
+
             ],
+
         },
+
     },
-]
 
-# WSGI
+]
+ 
 WSGI_APPLICATION = 'online_bookstore.wsgi.application'
+ 
+# Database: SQLite for development
 
-# Database
-if RENDER:
-    DATABASES = {
-        'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
+DATABASES = {
+
+    'default': {
+
+        'ENGINE': 'django.db.backends.sqlite3',
+
+        'NAME': BASE_DIR / 'db.sqlite3',
+
     }
 
+}
+ 
 # Password validation
+
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+
+    {
+
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+
+    },
+
+    {
+
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+
+    },
+
 ]
+ 
+# Internationalization
 
-# Localization
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'Asia/Kolkata'  # ⏰ Set your local time zone
+
+TIME_ZONE = 'Asia/Kolkata'
+
 USE_I18N = True
+
 USE_TZ = True
-
+ 
 # Static files
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']  # Optional: if you use a global static/ folder
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Default primary key field
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [BASE_DIR / 'static']  # optional
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+ 
+# Default primary key field type
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+ 
