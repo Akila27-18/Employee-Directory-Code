@@ -13,10 +13,9 @@ RENDER = os.environ.get('RENDER') is not None
 DEBUG = not RENDER
 
 # Hosts
-if DEBUG:
-    ALLOWED_HOSTS = ['*']
-else:
-    ALLOWED_HOSTS = ['your-render-app.onrender.com']  # Replace with actual domain
+DEBUG = True
+ALLOWED_HOSTS = ['*']
+
 
 # Installed apps
 INSTALLED_APPS = [
