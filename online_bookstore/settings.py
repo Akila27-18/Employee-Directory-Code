@@ -8,14 +8,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Secret Key
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'your-dev-secret-key')
 
-# Environment Detection
+# Detect Render
 RENDER = os.environ.get('RENDER') is not None
+
+# Debug mode
 DEBUG = not RENDER
 
 # Hosts
-DEBUG = True
-ALLOWED_HOSTS = ['*']
-
+if DEBUG:
+    ALLOWED_HOSTS = ['*']
+else:
+    ALLOWED_HOSTS = ['your-render-app.onrender.com']  # 🔁 Replace with your Render domain
 
 # Installed apps
 INSTALLED_APPS = [
@@ -31,7 +34,7 @@ INSTALLED_APPS = [
 # Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Enable static file serving
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Enables serving static files in production
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -47,7 +50,7 @@ ROOT_URLCONF = 'online_bookstore.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # optional
+        'DIRS': [BASE_DIR / 'templates'],  # Optional: for project-level templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,13 +87,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Localization
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'Asia/Kolkata'  # or your preferred time zone
+TIME_ZONE = 'Asia/Kolkata'  # ⏰ Set your local time zone
 USE_I18N = True
 USE_TZ = True
 
 # Static files
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']  # Optional if you have custom static files
+STATICFILES_DIRS = [BASE_DIR / 'static']  # Optional: if you use a global static/ folder
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
