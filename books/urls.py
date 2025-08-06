@@ -1,5 +1,4 @@
 from django.urls import path
-<<<<<<< HEAD
 from .views import (
     BookListView,
     BookDetailView,
@@ -7,11 +6,6 @@ from .views import (
     BookUpdateView,
     BookDeleteView
 )
-=======
-from .views import BookListView, BookDetailView
-from . import views
->>>>>>> f2382b6baa6435a311c316d541563b2245312faf
-
 app_name = 'books'
 
 urlpatterns = [
