@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}{{ book.title }} - Book Detail{% endblock %}
+{% block content %}
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-body">
+      <h2 class="card-title">{{ book.title }}</h2>
+      <h5 class="text-muted">by {{ book.author }}</h5>
+      <p><strong>Category:</strong> {{ book.category.all|join:", " }}</p>
+      <p>{{ book.description }}</p>
+      <p><strong>Price:</strong> ₹{{ book.price }}</p>
+      {% if book.discount_price %}
+        <p><strong>Discount Price:</strong> ₹{{ book.discount_price }}</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

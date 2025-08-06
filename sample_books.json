@@ -1,0 +1,57 @@
+[
+  {
+    "model": "books.book",
+    "pk": 1,
+    "fields": {
+      "title": "Django for Beginners",
+      "author": "William S. Vincent",
+      "description": "A beginner-friendly introduction to Django.",
+      "price": 599,
+      "discount_price": 499
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 2,
+    "fields": {
+      "title": "Python Crash Course",
+      "author": "Eric Matthes",
+      "description": "A hands-on, project-based intro to programming.",
+      "price": 699,
+      "discount_price": 649
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 3,
+    "fields": {
+      "title": "Two Scoops of Django",
+      "author": "Audrey Roy Greenfeld",
+      "description": "Best practices for Django.",
+      "price": 799,
+      "discount_price": 749
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 4,
+    "fields": {
+      "title": "Effective Python",
+      "author": "Brett Slatkin",
+      "description": "59 specific ways to improve your Python.",
+      "price": 850,
+      "discount_price": 800
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 5,
+    "fields": {
+      "title": "Clean Code",
+      "author": "Robert C. Martin",
+      "description": "A handbook of agile software craftsmanship.",
+      "price": 950,
+      "discount_price": 850
+    }
+  }
+]
