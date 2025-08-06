@@ -18,7 +18,7 @@ DEBUG = not RENDER
 if DEBUG:
     ALLOWED_HOSTS = ['*']
 else:
-    ALLOWED_HOSTS = ['your-render-app.onrender.com']  # 🔁 Replace with your Render domain
+    ALLOWED_HOSTS = ['https://book-store-4-ywr3.onrender.com']  # 🔁 Replace with your Render domain
 
 # Installed apps
 INSTALLED_APPS = [
