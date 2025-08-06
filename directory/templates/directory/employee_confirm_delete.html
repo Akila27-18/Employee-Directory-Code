@@ -1,11 +1,11 @@
 {% extends 'directory/base.html' %}
 
 {% block content %}
-<h2>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Employee</h2>
+<h2>Confirm Delete</h2>
+<p>Are you sure you want to delete <strong>{{ employee.name }}</strong>?</p>
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-danger">Yes, delete</button>
     <a href="{% url 'employee_list' %}" class="btn btn-secondary">Cancel</a>
 </form>
 {% endblock %}
