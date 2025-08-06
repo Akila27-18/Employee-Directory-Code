@@ -1,0 +1,56 @@
+[
+  {
+    "model": "directory.department",
+    "pk": 1,
+    "fields": {
+      "name": "Development"
+    }
+  },
+  {
+    "model": "directory.department",
+    "pk": 2,
+    "fields": {
+      "name": "Human Resources"
+    }
+  },
+  {
+    "model": "directory.department",
+    "pk": 3,
+    "fields": {
+      "name": "Sales"
+    }
+  },
+  {
+    "model": "directory.employee",
+    "pk": 1,
+    "fields": {
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "phone": "1234567890",
+      "department": 1,
+      "position": "Software Engineer"
+    }
+  },
+  {
+    "model": "directory.employee",
+    "pk": 2,
+    "fields": {
+      "name": "Bob Smith",
+      "email": "bob@example.com",
+      "phone": "9876543210",
+      "department": 2,
+      "position": "HR Manager"
+    }
+  },
+  {
+    "model": "directory.employee",
+    "pk": 3,
+    "fields": {
+      "name": "Charlie Brown",
+      "email": "charlie@example.com",
+      "phone": "4567891230",
+      "department": 3,
+      "position": "Sales Executive"
+    }
+  }
+]

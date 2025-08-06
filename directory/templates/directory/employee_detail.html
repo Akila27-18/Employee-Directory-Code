@@ -1,0 +1,23 @@
+{% extends 'directory/base.html' %}
+{% block content %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    {% for crumb in breadcrumbs %}
+      {% if not forloop.last %}
+        <li class="breadcrumb-item"><a href="{{ crumb.url }}">{{ crumb.name }}</a></li>
+      {% else %}
+        <li class="breadcrumb-item active" aria-current="page">{{ crumb.name }}</li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+</nav>
+
+<h2>{{ object.name }}</h2>
+<ul class="list-group">
+    <li class="list-group-item"><strong>Email:</strong> {{ object.email }}</li>
+    <li class="list-group-item"><strong>Phone:</strong> {{ object.phone }}</li>
+    <li class="list-group-item"><strong>Department:</strong> {{ object.department }}</li>
+    <li class="list-group-item"><strong>Position:</strong> {{ object.position }}</li>
+</ul>
+<a href="{% url 'employee_list' %}" class="btn btn-secondary mt-3">Back to List</a>
+{% endblock %}
